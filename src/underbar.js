@@ -128,9 +128,16 @@ var _ = { };
   // Calls the method named by methodName on each value in the list.
   _.invoke = function(list, methodName, args) {
 	  var retArr=[];
-	  _.each(list, function(a) {
-		  retArr.push(a[methodName](args));
-	  });
+	  if(typeof methodName === 'string' || methodName instanceof String) {
+		  _.each(list, function(a) {
+			  retArr.push(a[methodName](args));
+		  });
+	  }
+	  else {	  
+		  _.each(list, function(a) {
+			  retArr.push(methodName.apply(a, args));
+		  });
+	  }
 	  return retArr;
   };
 
