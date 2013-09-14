@@ -24,6 +24,10 @@ var _ = { };
   // Like first, but for the last elements. If n is undefined, return just the
   // last element.
   _.last = function(array, n) {
+	  if(n === 0) return [];
+	  else if(n > 0 && n <= array.length) return array.slice(array.length-n, array.length);
+	  else if(n > array.length) return array;
+	  else return array.pop();
   };
 
   // Call iterator(value, key, collection) for each element of collection.
