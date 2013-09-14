@@ -319,6 +319,13 @@ var _ = { };
 
   // Shuffle an array.
   _.shuffle = function(array) {
+	  var retArr = [];
+	  while(array.length > 0) {
+		  var randIndex = Math.floor(Math.random()*array.length);
+		  retArr.push(array[randIndex]);
+		  array.splice(randIndex,1);
+	  }
+	  return retArr;
   };
 
 
