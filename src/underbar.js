@@ -40,6 +40,13 @@ var _ = { };
 		  }
           return retArr;
 	  }
+	  else {
+		  var retArr = [];
+		  for(var i in collection) {
+			  retArr.push(iterator(collection[i],i,collection));
+		  }
+		  return retArr;
+	  }
   };
 
   // Returns the index at which value can be found in the array, or -1 if value
