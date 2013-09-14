@@ -158,7 +158,7 @@ var _ = { };
 	  var sum=0;
 	  if(initialValue !== undefined) sum = initialValue;
 	  _.each(collection, function(a) {
-		  sum += a;
+		  sum = iterator(sum, a);
 	  });
 	  return sum;
   };
