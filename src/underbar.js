@@ -155,6 +155,12 @@ var _ = { };
   //   }, 0); // should be 6
   //
   _.reduce = function(collection, iterator, initialValue) {
+	  var sum=0;
+	  if(initialValue !== undefined) sum = initialValue;
+	  _.each(collection, function(a) {
+		  sum += a;
+	  });
+	  return sum;
   };
 
   // Determine if the array or object contains a given value (using `===`).
