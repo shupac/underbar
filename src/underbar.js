@@ -79,6 +79,12 @@ var _ = { };
   _.reject = function(collection, iterator) {
     // TIP: see if you can re-use _.select() here, without simply
     // copying code in and modifying it
+	var retArr=[];
+	var trueArr = _.filter(collection, iterator);
+	_.each(collection, function(a) {
+		if(_.indexOf(trueArr,a)===-1) retArr.push(a);
+	});
+	return retArr;
   };
 
   // Produce a duplicate-free version of the array.
