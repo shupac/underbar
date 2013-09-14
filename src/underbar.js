@@ -280,6 +280,18 @@ var _ = { };
   // already computed the result for the given argument and return that value
   // instead if possible.
   _.memoize = function(func) {
+	  var resultsObj = [];
+	  var result;
+	  return function(prim) {
+		  if(resultsObj.hasOwnProperty(prim)) {
+			  result = resultsArr[prim];
+		  }
+		  else {
+			  result = func.call(this, prim);
+			  resultsObj[prim] = result;
+		  }
+		  return result;
+	  };
   };
 
   // Delays a function for the given number of milliseconds, and then calls
